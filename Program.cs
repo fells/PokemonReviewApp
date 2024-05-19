@@ -2,7 +2,6 @@
 
 using PokemonReviewApp;
 using PokemonReviewApp.Data;
-using PokemonReviewApp.Helper;
 using PokemonReviewApp.Interfaces;
 using PokemonReviewApp.Repository;
 
@@ -15,6 +14,7 @@ builder.Services.AddControllers();
 builder.Services.AddTransient<Seed>();  // We are configuring a injection on the Seed Class
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddScoped<IPokemonRepository, PokemonRepository>(); // This is registering the interface and implementing the concrete logic from the Repository
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
