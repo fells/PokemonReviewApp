@@ -2,17 +2,20 @@
 
 using PokemonReviewApp;
 using PokemonReviewApp.Data;
+using PokemonReviewApp.Helper;
 using PokemonReviewApp.Interfaces;
 using PokemonReviewApp.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddDbContext<ConnectionContext>();
 
 // Add services to the container.
 
+builder.Services.AddDbContext<ConnectionContext>(); // This is the service that runs your Database Connection
 builder.Services.AddControllers();
 builder.Services.AddTransient<Seed>();  // We are configuring a injection on the Seed Class
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddScoped<IPokemonRepository, PokemonRepository>(); // This is registering the interface and implementing the concrete logic from the Repository
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

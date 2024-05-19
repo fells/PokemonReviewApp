@@ -143,6 +143,9 @@ namespace PokemonReviewApp.Migrations
                     b.Property<int>("PokemonId")
                         .HasColumnType("integer");
 
+                    b.Property<int>("Rating")
+                        .HasColumnType("integer");
+
                     b.Property<int>("ReviewerId")
                         .HasColumnType("integer");
 

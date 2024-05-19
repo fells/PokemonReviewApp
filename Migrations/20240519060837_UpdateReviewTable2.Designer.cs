@@ -12,8 +12,8 @@ using PokemonReviewApp.Data;
 namespace PokemonReviewApp.Migrations
 {
     [DbContext(typeof(ConnectionContext))]
-    [Migration("20240516012104_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20240519060837_UpdateReviewTable2")]
+    partial class UpdateReviewTable2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -144,6 +144,9 @@ namespace PokemonReviewApp.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<int>("PokemonId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Rating")
                         .HasColumnType("integer");
 
                     b.Property<int>("ReviewerId")
