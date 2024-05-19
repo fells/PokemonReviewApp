@@ -18,10 +18,10 @@ namespace PokemonReviewApp.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
             => optionsBuilder.UseNpgsql(
-                "Server=localhost;" +
-                "Username=postgres;" + // Place in your Username for the DB
-                "Password=709080;" + // Place in your Password for the DB
-                "Database=PokemonReview;");
+                "Server=;" +
+                "Username=;" + // Place in your Username for the DB
+                "Password=;" + // Place in your Password for the DB
+                "Database=;");
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
